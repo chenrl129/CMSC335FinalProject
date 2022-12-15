@@ -3,21 +3,23 @@
 
     <head>
         <meta charset='utf-8'>
-        <title>Text Suggest</title>
+        <title>Input Page</title>
         <style>
             div { border: 1px solid black; padding: 10px; }
         </style>
     </head>
 
     <body>
-        <h1>Text-Suggest (CMSC335 Final Project)</h1>
-        <div>
-            <label>
-                Enter Prompt Below: <br>
-                <textarea name="background" rows="5" cols="70"></textarea>
-            </label>            
-        </div><br>
-        <input type="reset" value="Reset">
-        <input type="submit" value="Submit">
+        <h1>Input Page</h1>
+        <form action="apply" method="post">
+            <div>
+                <label>
+                    Enter Prompt Below: <br>
+                    <textarea name="background" rows="5" cols="70"></textarea>
+                </label>            
+            </div><br>
+            <input type="reset" value="Reset">
+            <input type="submit" value="Submit">
+        </form>
     </body>
 </html>
