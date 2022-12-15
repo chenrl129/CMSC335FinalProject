@@ -29,11 +29,19 @@ async function main() {
       }
     });
   }
-
+  main();
 app.set("views", path.resolve(__dirname, "templates"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:false}));
 app.get('/', (req, res) => {
-    res.render("index");
+    res.render("input");
+});
+app.post('/output', (req, res) => {
+  collection.insertOne({
+    input: req.body.input
   });
-main();
+  response.render("output", {
+    input: request.body.input
+  });  
+});
+
