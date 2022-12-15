@@ -10,7 +10,7 @@ const MONGO_DB_USERNAME = process.env.MONGO_DB_USERNAME;
 const MONGO_DB_PASSWORD = process.env.MONGO_DB_PASSWORD;
 const MONGO_DB_NAME = process.env.MONGO_DB_NAME;
 const MONGO_COLLECTION = process.env.MONGO_COLLECTION;
-const PORT = process.argv[2];
+const PORT = 4000
 
 const uri = `mongodb+srv://${MONGO_DB_USERNAME}:${MONGO_DB_PASSWORD}@cluster0.ee7cmay.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
@@ -29,4 +29,11 @@ async function main() {
       }
     });
   }
+
+app.set("views", path.resolve(__dirname, "templates"));
+app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({extended:false}));
+app.get('/', (req, res) => {
+    res.render("index");
+  });
 main();
