@@ -6,6 +6,14 @@ const env = require('dotenv').config()
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const app = express();
 
+import { Configuration, OpenAIApi } from "openai";
+const configuration = new Configuration({
+  organization: "org-bL7F0BTZOOlrk4oBavQ9upzu",
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+const response = await openai.listEngines();
+
 const MONGO_DB_USERNAME = process.env.MONGO_DB_USERNAME;
 const MONGO_DB_PASSWORD = process.env.MONGO_DB_PASSWORD;
 const MONGO_DB_NAME = process.env.MONGO_DB_NAME;
