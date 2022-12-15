@@ -48,13 +48,17 @@ async function main() {
 app.set("views", path.resolve(__dirname, "templates"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:false}));
+
 app.get('/', (req, res) => {
     res.render("index");
   });
-
-// write a function that builds a GPT-3 request and posts it to the OpenAI API endpoint 
-
-app.post('/submit', async (req, res) => {
+app.get('/history', (req, res) => { 
+    res.render("history"); 
+});
+app.get('/input', (req, res) => {
+  res.render("input");
+});
+app.post('/input', async (req, res) => {
     const json = {
         model: "text-davinci-003",
         prompt: req.body.prompt,
