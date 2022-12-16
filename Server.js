@@ -60,7 +60,6 @@ app.post('/output', (req, res) => {
 });
 app.get('/history', async (req, res) => {
   let data = await collection.find({}).toArray();
-  console.log(data);
         let table = `<table border="1"><tr><th><strong>Name</strong></th><th><strong>GPA</strong></th></tr>`;
         for (let i = 0; i < data.length; i++) {
           table += `<tr><td>${data[i].prompt}</td><td>${data[i].result}</td></tr>`;
@@ -88,5 +87,4 @@ app.post('/input', async (req, res) => {
     };
     await collection.insertOne(data);
     res.render("output", {result: result});
-    console.log(data);
   });
