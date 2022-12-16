@@ -6,8 +6,10 @@ App Description: We are developing an AI tool to assist users in constructing an
 This web application is created for the use case of accessible, customizable, and reliable text message suggestions for users through utilizing the Generative Pre-trained Transformer 3 (GPT3) autoregressive language model developed by OpenAI. 
 npm install express mongodb dotenv
 
-GPT3 API Documentation:
+GPT3 API:
 https://openai.com/api/
+Documentation:
+https://beta.openai.com/docs/introduction
 
 Pages: 
 1) Main page to navigate to input and history pages
