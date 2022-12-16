@@ -7,6 +7,8 @@ This web application is created for the use case of accessible, customizable, an
 
 **Youtube Demo Video**: https://youtu.be/WtvQOtD3R_0
 
+**Deployed Site:** https://text-suggest-cmsc335-final-project.onrender.com
+
 # Getting started
 
 1. Set up a MongoDB database and user with read/write access. More info at https://www.mongodb.com/docs/manual/
