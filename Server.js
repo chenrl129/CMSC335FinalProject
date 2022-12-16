@@ -5,14 +5,14 @@ const bodyParser = require("body-parser");
 const env = require('dotenv').config()
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const app = express();
+const { Configuration, OpenAIApi } = require("openai");
 
 // OpenAI connection
-// import { Configuration, OpenAIApi } from "openai";
-// const configuration = new Configuration({
-//   organization: "org-bL7F0BTZOOlrk4oBavQ9upzu",
-//   apiKey: process.env.OPENAI_API_KEY,
-// });
-// const openai = new OpenAIApi(configuration);
+const configuration = new Configuration({
+  organization: "org-bL7F0BTZOOlrk4oBavQ9upzu",
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
 const url = "https://api.openai.com/v1/engines/davinci/completions";
 const options = {
   headers: {
@@ -65,21 +65,21 @@ app.get('/input', (req, res) => {
   res.render("input");
 });
 app.post('/input', async (req, res) => {
-    const json = {
-        model: "text-davinci-003",
-        prompt: req.body.prompt,
-        max_tokens: 3657,
-        temperature: 0.7,
-        top_p: 1,
-        frequency_penalty: 0,
-        presence_penalty: 0
-    };
-    const response = await openai.post(url, json, options);
+    const response = await openai.createCompletion({
+      model: "text-davinci-003",
+      prompt: req.body.prompt,
+      max_tokens: 3657,
+      temperature: 0.7,
+      top_p: 1,
+      frequency_penalty: 0,
+      presence_penalty: 0
+    });
     const result = response.data.choices[0].text;
     const data = {
         prompt: req.body.prompt,
         result: result
     };
     await collection.insertOne(data);
-    res.render("result", {result: result});
+    res.render("output", {result: result});
+    console.log(data);
   });
