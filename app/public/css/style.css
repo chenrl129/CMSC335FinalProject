@@ -11,7 +11,5 @@ div.boxed {
 }
 
 body {
-    /* background from images/cloudy_background at .5 opacity */
-    background: url(../images/cloudy_background.png);
-
+    background: url(../images/cloudy_background.jpg);
 }

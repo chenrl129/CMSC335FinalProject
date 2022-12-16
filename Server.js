@@ -1,3 +1,4 @@
+const express = require("express");
 const app = require("./app/config/express");
 const { client } = require("./app/config/mongodb");
 const routes = require('./app/routes/routes.js');
@@ -17,6 +18,8 @@ async function main() {
     }
   });
 }
+
+app.use(express.static(__dirname + '/app/public')); // couldn't get this to work in express.js
 
 app.get('/', (req, res) => res.render("index"));
 app.post('/output', routes.output.post);
