@@ -50,12 +50,12 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:false}));
 
 app.get('/', (req, res) => {
-    res.render("input");
+    res.render("index");
 });
 app.post('/output', (req, res) => {
   collection.insertOne({
     input: req.body.input
-  });
+});
 app.get('/history', (req, res) => { 
     res.render("history"); 
 });
@@ -81,4 +81,4 @@ app.post('/input', async (req, res) => {
     await collection.insertOne(data);
     res.render("result", {result: result});
   });
-main();
+});
