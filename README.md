@@ -31,6 +31,6 @@ https://beta.openai.com/docs/introduction
 Pages: 
 1) Main page to navigate to input and history pages
 2) Input for user to input text they want to be completed by openai
-3) Output page for input
+3) Output page to view suggestion
 4) History page to view past prompts and suggestions
 
