@@ -10,5 +10,7 @@ GPT3 API Documentation:
 https://openai.com/api/
 
 Pages: 
-1) Input for user to input text they want to be completed by openai
-2) Output page for input with regenerate button 
+1) Main page to navigate to input and history pages
+2) Input for user to input text they want to be completed by openai
+3) Output page for input
+4) History page to view past prompts and suggestions
