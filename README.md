@@ -10,7 +10,7 @@ This web application is created for the use case of accessible, customizable, an
 # Getting started
 
 1. Set up a MongoDB database and user with read/write access. More info at https://www.mongodb.com/docs/manual/
-2. Get an OpenAI API key from https://beta.openai.com/account/api-keys
+2. Get an OpenAI API key from https://beta.openai.com/account/api-keys and put it in the .env file
 3. `npm install`
 4. Create .env file following .envexample with MongoDB and OpenAI info
 5. `npm start` or `node ./server.js [port]`
